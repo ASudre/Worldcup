@@ -539,6 +539,52 @@ var Worldcup = {
 	}
 };
 
+
+var OptaSports={
+	queue: [],
+	visible: false,
+	
+	init:function() {
+		var oConnection = kwwika.Service.connect();
+		var oSubscription = oConnection.subscribe("/OPTA/WC2010/NEXTGAME", {
+			topicUpdated:function(oSub, mUpdate){
+				OptaSports.queue.push(mUpdate);
+			},
+			topicError:function(oSub, sError){ return; }
+		});
+		
+		var oConnection2 = kwwika.Service.connect();
+		var oSubscription2 = oConnection.subscribe("/OPTA/WC2010/NEXTGAME2", {
+			topicUpdated:function(oSub, mUpdate){
+				OptaSports.queue.push(mUpdate);
+			},
+			topicError:function(oSub, sError){ return; }
+		});
+		
+		new PeriodicalExecuter(function(pe) {
+			OptaSports.next();
+		}, 12);
+		
+		OptaSports.next();
+	},
+	
+	next:function() {
+		if(OptaSports.queue.length >= 1) {
+			var d = OptaSports.queue.shift();
+			OptaSports.queue.push(d);
+			
+			if(d.HomeTeam != undefined && d.AwayTeam != undefined && d.MatchDate != undefined) {
+				$('opta').update(
+					'<p><b>next fixtures</b> : <i>'+d.HomeTeam+' vs '+d.AwayTeam+' - '+ d.MatchDate +'</i></p>'
+				);
+				
+				$$('#opta i')[0].setOpacity(0);
+				$$('#opta i')[0].morph("opacity:1", {duration:0.8});
+			}
+		}
+	}
+}
+
 var ify = function() {
   return {
     "link": function(t) {
@@ -564,6 +610,7 @@ var ify = function() {
 
 document.observe("dom:loaded", function() {
 	Worldcup.initialize();
+	OptaSports.init();
 });
 
 google.load("language", "1");

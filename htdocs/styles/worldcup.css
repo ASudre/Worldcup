@@ -54,9 +54,16 @@ footer a:active {
 	color: #FF0B28;
 }
 
+
+#opta {
+	background: #01b1f0 url(/images/opta.png) no-repeat 10px 50%;
+	padding: 5px 10px 5px 60px;
+}
+
 #lang-form {
 	float: right;
-	margin: 20px;
+	margin-top: 40px;
+	margin-right: 20px;
 }
 
 

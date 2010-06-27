@@ -191,6 +191,10 @@
 	</select>
 </form>
 
+<div id='opta'>
+	<p><b>next fixtures</b> : <i><small>loading...</small></i></p>
+</div>
+
 <header>
 	<hgroup>
 		<h1>World Cup Mash</h1>
@@ -255,11 +259,12 @@
 <script type="text/javascript" src="/js/prototype.s2.min.js"></script>
 <script type="text/javascript" src="/js/worldcup.js"></script>
 
-<!-- I can haz iPad now? 
-	 And a little something extra for those who viewed-source.
-	 Give the Konami code a try.
+<!-- 
+	I can haz iPad now? 
+	And a little something extra for those who viewed-source.
+	Give the Konami code a try.
 	 
-	 Up, Up, Down, Down, Left, Right, Left, Right, B, A, Enter
+	Up, Up, Down, Down, Left, Right, Left, Right, B, A, Enter
 -->
 
 <script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js" defer async></script> 
