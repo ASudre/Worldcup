@@ -15,6 +15,8 @@ var Worldcup = {
 	
 	oConnection: false,
 	oSubscription: false,
+	
+	feedItems:[],
 
 	initialize:function() {
 		/*
@@ -23,6 +25,8 @@ var Worldcup = {
 			Worldcup.googleReady = true;
 		});
 		*/
+		
+		Worldcup.fetchfeeds();
 		
 		$$('#flags a').each(function(fl) {
 			fl.observe('click', function(e){
@@ -455,6 +459,38 @@ var Worldcup = {
 			+ '<embed src="http://www.youtube.com/v/'+video.id.$t.split('/').pop()+'&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="260" height="209"></embed>'
 			+ '</object>'
 		);
+	},
+	
+	fetchfeeds:function() {
+		var url = "/commentary.php";
+		new Ajax.Request(url, { method:'get', onComplete: function(r) {
+			var data = r.responseText.evalJSON(true);
+			if(data.length > 1) {
+				Worldcup.feedItems = data;
+				Worldcup.feedNext();
+			} else {
+				$('#commentary').update('<h3>Commentary.</h3><p>'+data.error+'</p>');
+			}
+		}});
+	},
+	
+	feedNext:function() {
+		var curItem = Worldcup.feedItems.shift();
+		$('commentary').update(
+			'<h3>Commentary.</h3>'
+			+ '<h4><a href="'+curItem.url+'">'+curItem.title+'</a></h4>'
+			+' <p><a href="'+curItem.url+'">'+curItem.desc.substr(0,200)+'</a></p>');
+			
+		$$('#commentary p')[0].setOpacity(0);
+		$$('#commentary h4')[0].setOpacity(0);
+		
+		$$('#commentary p')[0].morph("opacity:1", {duration:0.8});
+		$$('#commentary h4')[0].morph("opacity:1", {duration:0.8});
+		
+		
+		Worldcup.feedItems.push(curItem);
+		
+		setTimeout("Worldcup.feedNext()", 12000);
 	},
 	
 	garbage:function() {

@@ -80,6 +80,8 @@
 	</ul>
 </div> <!-- END: #flags -->
 
+
+
 <header>
 	<hgroup>
 		<h1>World Cup Mash</h1>
@@ -113,14 +115,8 @@
 			<div id='replay-video'></div>
 		</div>
 		
-		<div>
+		<div id='commentary'>
 			<h3>Commentary.</h3>
-			<dl>
-				<dt>Greece target Nigeria riposte</dt>
-				<dd>
-					<p>The 2-0 loss to Korea Republic was a disappointing way to launch their FIFA World Cup challenge, but Greece say beating Nigeria is all ...</p>
-				</dd>
-			</dl>
 		</div>
 	</div> <!-- END: #info -->
 	

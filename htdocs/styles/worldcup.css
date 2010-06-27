@@ -163,6 +163,22 @@ header h2 a:active {
 	color: #FFF;
 }
 
+#commentary a {
+	color: #FFF;
+	text-decoration: none;
+	text-shadow: 0 0 5px #333;
+	font-weight: bold;
+}
+
+#commentary h4 {
+	font-size: 20px;
+	
+}
+
+#commentary p {
+	font-family: 16px;
+}
+
 #wrapper {
 	padding: 15px;
 }
