@@ -54,6 +54,11 @@ footer a:active {
 	color: #FF0B28;
 }
 
+#lang-form {
+	float: right;
+	margin: 20px;
+}
+
 
 header {
 	margin-bottom: 20px;
@@ -172,7 +177,6 @@ header h2 a:active {
 
 #commentary h4 {
 	font-size: 20px;
-	
 }
 
 #commentary p {

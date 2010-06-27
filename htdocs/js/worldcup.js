@@ -17,6 +17,8 @@ var Worldcup = {
 	oSubscription: false,
 	
 	feedItems:[],
+	
+	lang:false,
 
 	initialize:function() {
 		/*
@@ -33,6 +35,16 @@ var Worldcup = {
 				// Event.stop(e);
 				Worldcup.setActive(this.href.split("#")[1]);
 			}.bindAsEventListener(fl));
+		});
+		
+		$('lang').observe('change', function() {
+			// Remove all
+			if($F('lang') != 'ALL') {
+				Worldcup.queue = [];
+				Worldcup.lang = $F('lang');
+			} else {
+				Worldcup.lang = false;
+			}
 		});
 		
 		
@@ -329,7 +341,11 @@ var Worldcup = {
 		Worldcup.oConnection = kwwika.Service.connect();
 		Worldcup.oSubscription = Worldcup.oConnection.subscribe("/KWWIKA/TWITTER/SEARCHES/WC2010/"+Worldcup.activeCountry, {
 			topicUpdated:function(oSub, mUpdate){ 
-				Worldcup.queue.push(mUpdate);
+				if(!Worldcup.lang) {
+					Worldcup.queue.push(mUpdate);
+				} else {
+					GoogleDetect(mUpdate);
+				}
 			}
 		});
 		
@@ -366,15 +382,7 @@ var Worldcup = {
 	},
 	
 	add:function(tweet) {
-		if(tweet.PlaceCountry.blank()) {
-			console.log("Tweet came from: " +tweet.PlaceCountry);
-			console.log(tweet);
-		}
-		
-		if(tweet.ScreenName == "aaronbassett") {
-			console.log(tweet);
-		}
-		
+				
 		// Add new tweet
 		var element = new Element('li',{ 
 			style:'height:auto'
@@ -394,7 +402,6 @@ var Worldcup = {
 			Worldcup.playersDetails[tweet.ScreenName] = tweet;
 		}
 		
-		GoogleDetect(tweet.Text);
 		Worldcup.garbage();
 	},
 	
@@ -566,15 +573,20 @@ function GoogleAPIinitialize() {
 	googleAPILoaded = true;
 }
  
-function GoogleDetect(text) {
+function GoogleDetect(tweet) {
   if(!googleAPILoaded) return;
   
-  google.language.detect(text, function(result) {
+  google.language.detect(tweet.Text, function(result) {
     if (!result.error) {
       var language = 'unknown';
       for (l in google.language.Languages) {
         if (google.language.Languages[l] == result.language) {
           language = l;
+          if(Worldcup.lang.toUpperCase() == language.toUpperCase()) {
+          	Worldcup.queue.push(tweet);
+          } else {
+          	console.log('Language mis-match. You want '+Worldcup.lang+' tweet is in '+language);
+          }
           break;
         }
       }
