@@ -1,0 +1,164 @@
+body {
+	background: url(/images/grass.jpg);
+	color: #FFF;
+	font: 13px Helvetica, Arial, sans-serif;
+}
+
+#info {
+	float: left;
+	width: 300px;
+}
+
+
+#tweets {
+	margin-left: 320px;
+	text-shadow: 0 0 5px #333;
+}
+
+#team li, #highlights li {
+	margin: 2px;
+}
+
+#team li a img, #highlights li a img {
+	width: 75px;
+	height: 75px;
+}
+
+footer {
+	background: rgba(255,255,255,0.6);
+	clear: both;
+	color: #000;
+	padding: 5px 12px;
+	border-radius: 6px;
+
+	
+	opacity: 0.5;
+	z-index: 99;
+}
+
+footer:hover, 
+footer:focus, 
+footer:active {
+	opacity: 1;
+}
+
+footer a {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus,
+footer a:active {
+	color: #FF0B28;
+}
+
+#flags {
+	background: #000;
+	height: 48px;
+}
+
+header {
+	margin-bottom: 20px;
+	padding: 15px;
+}
+
+header h1 {
+	font-size: 70px;
+	line-height: 60px;
+	margin: 10px 0 0 0;
+}
+
+header h2 {
+	background: rgba(255,255,255,0.6);
+	display: inline-block;
+	margin: 0;
+	padding: 2px 12px;
+	border-radius: 6px;
+}
+header h2 a {
+	color: #000;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+header h2 a:hover,
+header h2 a:focus,
+header h2 a:active {
+	color: #FF0B28;
+}
+
+#info div {
+	margin-bottom: 15px;
+}
+
+#info h3 {
+	font-size: 30px;
+}
+
+
+#info ul {
+	list-style: none;
+}
+#info ul li {
+	display: inline;
+}
+
+#info li a img {
+	border: 1px dashed #FFF;
+}
+
+#info li a:hover img,
+#info li a:focus img,
+#info li a:active img {
+	opacity: 0.9;
+}
+
+#wrapper {
+	padding: 15px;
+}
+
+
+#tweets {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+#tweets ul {
+	list-style: none;
+}
+
+#tweets li {
+	padding: 12px;
+}
+
+#tweets li:hover {
+	background: rgba(255,255,255,0.3);
+	border-radius: 30px;
+	color: #EEE;
+}
+
+#tweets li a {
+	color: #EEE;
+	text-decoration: none;
+	border-bottom: 3px dashed;
+}
+
+#tweets li a:hover,
+#tweets li a:focus,
+#tweets li a:active {
+	color: #FF0B28;
+}
+
+
+#KonamiOverlay {
+	background: rgba(0,0,0,0.8);
+	height: 385px;
+	width: 480px;
+	padding: 10px;
+	border-radius: 12px;
+	position: fixed;
+	top: 30px;
+	right: 30px;
+}

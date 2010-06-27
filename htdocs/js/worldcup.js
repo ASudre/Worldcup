@@ -6,6 +6,10 @@ var Worldcup = {
 	highlights:[],
 	highlightsFound:[],
 	googleReady:false,
+	
+	activeCountry: 'OTHER',
+	activeTwitpicSearch: 'http://search.twitter.com/search.json?q=twitpic+Worldcup',
+	activeYoutubeSearch: 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup',
 
 	initialize:function() {
 		/*
@@ -18,28 +22,21 @@ var Worldcup = {
 		
 		yqlgeo.get('visitor',function(o){
 			
-			var country = '';
-			
-			switch(o.place.country.content) {
-			case 'United Kigdom':
-			case 'Wales':
-			case 'Scotland':
-			case 'England':
-				country = 'ENGLAND';
-				break;
-			default:
-				country = 'OTHER';
-				break;
-			}
+			var visitorCountry = o.place.country.content;
+			Worldcup.setActive(visitorCountry);
 			
 			var oConnection = kwwika.Service.connect();
-			var oSubscription = oConnection.subscribe("/KWWIKA/TWITTER/SEARCHES/WC2010/"+country, {
+			var oSubscription = oConnection.subscribe("/KWWIKA/TWITTER/SEARCHES/WC2010/"+Worldcup.activeCountry, {
 				topicUpdated:function(oSub, mUpdate){ 
 					Worldcup.queue.push(mUpdate);
 				}
 			});
+			
+			Worldcup.getHighlights();
 
 		});
+		
+		Worldcup.getInstantReplay();
 				
 		new PeriodicalExecuter(function(pe) {
 			Worldcup.next();
@@ -55,10 +52,26 @@ var Worldcup = {
 		
 		new PeriodicalExecuter(function(pe) {
 			Worldcup.getHighlights();
-		}, 8);
-		
-		
-		Worldcup.getHighlights();
+		}, 10);
+	},
+	
+	setActive:function(country) {
+	
+		switch(country) {
+		case 'United Kingdom':
+		case 'Wales':
+		case 'Scotland':
+		case 'England':
+			Worldcup.activeCountry = 'ENGLAND';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=England+En+Eng';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup England'
+			break;
+		default:
+			Worldcup.activeCountry = 'OTHER';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup';
+			break;
+		}
 	},
 	
 	addPlayer:function(tweet) {
@@ -79,6 +92,15 @@ var Worldcup = {
 	},
 	
 	add:function(tweet) {
+		if(tweet.PlaceCountry.blank()) {
+			console.log("Tweet came from: " +tweet.PlaceCountry);
+			console.log(tweet);
+		}
+		
+		if(tweet.ScreenName == "aaronbassett") {
+			console.log(tweet);
+		}
+		
 		// Add new tweet
 		var element = new Element('li',{ 
 			style:'height:auto'
@@ -105,7 +127,7 @@ var Worldcup = {
 	getHighlights:function() {
 		var s = document.createElement('script');
 		s.type = 'text/javascript';
-		s.src = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&callback=Worldcup.loadHighlights&rpp=100';
+		s.src = Worldcup.activeTwitpicSearch+'&callback=Worldcup.loadHighlights&rpp=100';
 		document.getElementsByTagName('head')[0].appendChild(s);
 	},
 	
@@ -143,6 +165,45 @@ var Worldcup = {
 		high.morph("opacity:1", {duration:0.8});		
 		
 		Worldcup.garbage();
+	},
+	
+	getInstantReplay:function() {
+		var s = document.createElement('script');
+		s.src = Worldcup.activeYoutubeSearch + "&alt=json-in-script&callback=Worldcup.showInstantReplay";
+		s.type = "text/javascript";
+		document.getElementsByTagName("head")[0].appendChild(s);
+	},
+	
+	/*
+	Object
+	encoding: "UTF-8"
+	feed: Object
+	author: Array (1)
+	category: Array (1)
+	entry: Array (5)
+	0: Object
+	author: Array (1)
+	0: Object
+	name: Object
+	$t: "dhiwizz"
+	__proto__: Object
+	uri: Object
+	__proto__: Object
+	length: 1
+	__proto__: Array
+	category: Array (46)
+	content: Obj
+	*/
+	showInstantReplay:function(data) {
+		var video = data.feed.entry[0];
+		$('replay-video').update(
+			'<object width="260" height="209">'
+			+ '<param name="movie" value="http://www.youtube.com/v/'+video.id.$t.split('/').pop()+'&fs=1&"></param>'
+			+ '<param name="allowFullScreen" value="true"></param>'
+			+ '<param name="allowscriptaccess" value="always"></param>'
+			+ '<embed src="http://www.youtube.com/v/'+video.id.$t.split('/').pop()+'&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="260" height="209"></embed>'
+			+ '</object>'
+		);
 	},
 	
 	garbage:function() {
@@ -230,25 +291,37 @@ function GoogleDetect(text) {
           break;
         }
       }
-      console.debug("Tweet is in: " + language);
     }
   });
 }
 google.setOnLoadCallback(GoogleAPIinitialize);
 
 /*
-CreatedAt: "6/13/2010 4:53:24 PM"
+BrownTotal: "1"
+CameronTotal: "6"
+CleggTotal: "423"
+CreatedAt: "6/15/2010 6:09:40 PM"
 Favourited: "false"
-Id: "16080201504"
-InReplyToScreenName: "eolai"
+GeoLat: "="
+GeoLong: "="
+GeoType: "Point"
+Id: "16239591607"
+InReplyToScreenName: "="
 InReplyToStatusId: "="
-InReplyToUserId: "849201"
-ScreenName: "deejaycream"
-Source: "<a href="http://ubertwitter.com" rel="nofollow">UberTwitter</a>"
-Text: "Argentina punya 'Tangan Tuhan' Serbia punya 'Tangan Kuzman' #worldcup2010"
-TotalTweets: "786783"
+InReplyToUserId: "19339713"
+PlaceCountry: "="
+PlaceFullName: "="
+PlaceId: "ac88a4f17a51c7fc"
+PlaceName: "Portland"
+PlaceType: "="
+PlaceUrl: "="
+ScreenName: "Englandff"
+Source: "<a href="http://apiwiki.twitter.com/" rel="nofollow">API</a>"
+Text: "Rooney back in training http://ffd.me/b6Fgmi #worldcup #eng"
+TotalTweets: "2095795"
 Truncated: "false"
-UserFollowersCount: "1516"
-UserName: "reza arnanda putra"
-UserProfileImageUrl: "http://a1.twimg.com/profile_images/935147516/20090128142410_KNVB_logo_normal.gif"
+UserFollowersCount: "0"
+UserName: "England on FanFeedr"
+UserProfileImageUrl: "http://a1.twimg.com/profile_images/969066708/worldcup2010_normal.png"
+__proto__: Object
 */
