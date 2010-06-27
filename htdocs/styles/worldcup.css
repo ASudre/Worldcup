@@ -54,10 +54,6 @@ footer a:active {
 	color: #FF0B28;
 }
 
-#flags {
-	background: #000;
-	height: 48px;
-}
 
 header {
 	margin-bottom: 20px;
@@ -89,8 +85,30 @@ header h2 a:active {
 	color: #FF0B28;
 }
 
+#flags {
+	background: #000;
+	padding: 5px 0;
+}
+#flags ul {
+	list-style: none;
+}
+#flags li {
+	float: left;
+	margin-left: 5px;
+}
+
+#flags a {
+	opacity: 0.7;
+}
+
+#flags a:hover,
+#flags a:focus,
+#flags a:active {
+	opacity: 1;
+}
+
 #info div {
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 }
 
 #info h3 {
@@ -113,6 +131,36 @@ header h2 a:active {
 #info li a:focus img,
 #info li a:active img {
 	opacity: 0.9;
+}
+
+#now-playing dl {
+	padding: 10px;
+	text-shadow: 0 0 5px #333;
+}
+
+#now-playing dt {
+	float: left;
+}
+
+#now-playing dd {
+	margin-left: 58px;
+	margin-top: 8px;
+}
+
+#now-playing h4 {
+	font-size: 20px;
+}
+
+#now-playing h4 {
+	margin-bottom: 0;
+}
+
+#now-playing ul {
+	margin-bottom: 10px;
+}
+
+#now-playing h5 a {
+	color: #FFF;
 }
 
 #wrapper {
@@ -149,6 +197,14 @@ header h2 a:active {
 #tweets li a:focus,
 #tweets li a:active {
 	color: #FF0B28;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
 
 

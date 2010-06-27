@@ -10,6 +10,11 @@ var Worldcup = {
 	activeCountry: 'OTHER',
 	activeTwitpicSearch: 'http://search.twitter.com/search.json?q=twitpic+Worldcup',
 	activeYoutubeSearch: 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup',
+	flag: 'none',
+	humanCountry: 'Everyone',
+	
+	oConnection: false,
+	oSubscription: false,
 
 	initialize:function() {
 		/*
@@ -19,24 +24,20 @@ var Worldcup = {
 		});
 		*/
 		
+		$$('#flags a').each(function(fl) {
+			fl.observe('click', function(e){
+				// Event.stop(e);
+				Worldcup.setActive(this.href.split("#")[1]);
+			}.bindAsEventListener(fl));
+		});
+		
 		
 		yqlgeo.get('visitor',function(o){
 			
 			var visitorCountry = o.place.country.content;
 			Worldcup.setActive(visitorCountry);
-			
-			var oConnection = kwwika.Service.connect();
-			var oSubscription = oConnection.subscribe("/KWWIKA/TWITTER/SEARCHES/WC2010/"+Worldcup.activeCountry, {
-				topicUpdated:function(oSub, mUpdate){ 
-					Worldcup.queue.push(mUpdate);
-				}
-			});
-			
-			Worldcup.getHighlights();
 
 		});
-		
-		Worldcup.getInstantReplay();
 				
 		new PeriodicalExecuter(function(pe) {
 			Worldcup.next();
@@ -54,7 +55,7 @@ var Worldcup = {
 			Worldcup.getHighlights();
 		}, 10);
 	},
-	
+		
 	setActive:function(country) {
 	
 		switch(country) {
@@ -65,13 +66,282 @@ var Worldcup = {
 			Worldcup.activeCountry = 'ENGLAND';
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=England+En+Eng';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup England'
+			Worldcup.flag = 'England';
+			Worldcup.humanCountry = 'England';
+			break;
+		case 'Algeria':
+			Worldcup.activeCountry = 'ALGERIA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Algeria+Alg';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Algeria'
+			Worldcup.flag = 'Algeria';
+			Worldcup.humanCountry = 'Algeria';
+			break;
+		case 'Argentina':
+			Worldcup.activeCountry = 'ARGENTINA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Argentina+Arg';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Argentina'
+			Worldcup.flag = 'Argentina';
+			Worldcup.humanCountry = 'Argentina';
+			break;
+		case 'Australia':
+			Worldcup.activeCountry = 'AUSTRALIA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Australia+Aus';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Australia'
+			Worldcup.flag = 'Australia';
+			Worldcup.humanCountry = 'Australia';
+			break;
+		case 'Brazil':
+			Worldcup.activeCountry = 'BRAZIL';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Brazil+Bra';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Brazil'
+			Worldcup.flag = 'Brazil';
+			Worldcup.humanCountry = 'Brazil';
+			break;
+		case 'Cameroon':
+			Worldcup.activeCountry = 'CAMEROON';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Cameroon+Cam+cmr';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Cameroon'
+			Worldcup.flag = 'Cameroon';
+			Worldcup.humanCountry = 'Cameroon';
+			break;
+		case 'Chile':
+			Worldcup.activeCountry = 'CHILE';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Chile+chi';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Chile'
+			Worldcup.flag = 'Chile';
+			Worldcup.humanCountry = 'Chile';
+			break;
+		case 'Denmark':
+			Worldcup.activeCountry = 'DENMARK';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Denmark+den';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Denmark'
+			Worldcup.flag = 'Denmark';
+			Worldcup.humanCountry = 'Denmark';
+			break;
+		case 'France':
+			Worldcup.activeCountry = 'FRANCE';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=France+Fra';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup France'
+			Worldcup.flag = 'France';
+			Worldcup.humanCountry = 'France';
+			break;
+		case 'Germany':
+			Worldcup.activeCountry = 'GERMANY';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Germany+ger';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Germany'
+			Worldcup.flag = 'Germany';
+			Worldcup.humanCountry = 'Germany';
+			break;
+		case 'Ghana':
+			Worldcup.activeCountry = 'GHANA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Ghana+gha';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Ghana'
+			Worldcup.flag = 'Ghana';
+			Worldcup.humanCountry = 'Ghana';
+			break;
+		case 'Greece':
+			Worldcup.activeCountry = 'GREECE';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Greece+gre';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Greece'
+			Worldcup.flag = 'Greece';
+			Worldcup.humanCountry = 'Greece';
+			break;
+		case 'Honduras':
+			Worldcup.activeCountry = 'HONDURAS';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Honduras+hon';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Honduras'
+			Worldcup.flag = 'Honduras';
+			Worldcup.humanCountry = 'Honduras';
+			break;
+		case 'Italy':
+			Worldcup.activeCountry = 'ITALY';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Italy+ita';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Italy'
+			Worldcup.flag = 'Italy';
+			Worldcup.humanCountry = 'Italy';
+			break;
+		case "C™te d'Ivoire":
+		case 'Ivory Coast':
+		case 'IvoryCoast':
+			Worldcup.activeCountry = 'IVORYCOAST';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Ivory+Coast+civ';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Ivory Coast'
+			Worldcup.flag = 'NATO';
+			Worldcup.humanCountry = 'C™te d\'Ivoire';
+			break;
+		case 'Japan':
+			Worldcup.activeCountry = 'JAPAN';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Japan+jpn';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Japan'
+			Worldcup.flag = 'NATO';
+			Worldcup.humanCountry = 'Japan';
+			break;
+		case 'North Korea':
+		case 'Korea DPR':
+		case "Democratic People's Republic of Korea":
+		case "Democratic People's Republic of Korea (DPRK)":
+		case "(DPRK)":
+		case 'KoreaDPR':
+			Worldcup.activeCountry = 'NORTHKOREA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=North+Korea+prk';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup North Korea'
+			Worldcup.flag = 'NATO';
+			Worldcup.humanCountry = 'Democratic People\'s Republic of Korea';
+			break;
+		case 'Korea Republic':
+		case 'South Korea':
+		case 'Republic of Korea':
+		case 'Republic of Korea (ROK)':
+		case '(ROK)':
+		case 'KoreaRepublic':
+			Worldcup.activeCountry = 'SOUTHKOREA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=South+Korea+kor';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup South Korea'
+			Worldcup.flag = 'NATO';
+			Worldcup.humanCountry = 'Republic of Korea';
+			break;
+		case 'Mexico':
+			Worldcup.activeCountry = 'MEXICO';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Mexico+mex';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Mexico'
+			Worldcup.flag = 'Mexico';
+			Worldcup.humanCountry = 'Mexico';
+			break;
+		case 'Netherlands':
+			Worldcup.activeCountry = 'NETHERLANDS';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Netherlands+ned';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Netherlands'
+			Worldcup.flag = 'Netherlands';
+			Worldcup.humanCountry = 'Netherlands';
+			break;
+		case 'New Zealand':
+		case 'NewZealand':
+			Worldcup.activeCountry = 'OTHER';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=New+Zealand+NewZealand';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup New Zealand'
+			Worldcup.flag = 'New Zealand';
+			Worldcup.humanCountry = 'New Zealand';
+			break;
+		case 'Nigeria':
+			Worldcup.activeCountry = 'NIGERIA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Nigeria+nga';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Nigeria'
+			Worldcup.flag = 'Nigeria';
+			Worldcup.humanCountry = 'Nigeria';
+			break;
+		case 'Paraguay':
+			Worldcup.activeCountry = 'PARAGUAY';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Paraguay+par';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Paraguay'
+			Worldcup.flag = 'Paraguay';
+			Worldcup.humanCountry = 'Paraguay';
+			break;
+		case 'Portugal':
+			Worldcup.activeCountry = 'PORTUGAL';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Portugal+por';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Portugal'
+			Worldcup.flag = 'Portugal';
+			Worldcup.humanCountry = 'Portugal';
+			break;
+		case 'Serbia':
+			Worldcup.activeCountry = 'SERBIA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Serbia+srb';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Serbia'
+			Worldcup.flag = 'Serbia(Yugoslavia)';
+			Worldcup.humanCountry = 'Serbia';
+			break;
+		case 'Slovakia':
+			Worldcup.activeCountry = 'SLOVAKIA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Slovakia+svk';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Slovakia'
+			Worldcup.flag = 'Slovakia';
+			Worldcup.humanCountry = 'Slovakia';
+			break;
+		case 'Slvenia':
+		case 'Slovenia':
+			Worldcup.activeCountry = 'SLOVENIA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Slovenia+svn';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Slovenia'
+			Worldcup.flag = 'Slovenia';
+			Worldcup.humanCountry = 'Slovenia';
+			break;
+		case 'South Africa':
+		case 'SouthAfrica':
+			Worldcup.activeCountry = 'SOUTHAFRICA';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=South+Africa+rsa';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup South Africa'
+			Worldcup.flag = 'South Africa';
+			Worldcup.humanCountry = 'South Africa';
+			break;
+		case 'Spain':
+			Worldcup.activeCountry = 'SPAIN';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Spain+es+esp';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Spain'
+			Worldcup.flag = 'Spain';
+			Worldcup.humanCountry = 'Spain';
+			break;
+		case 'Switzerland':
+			Worldcup.activeCountry = 'SWITZERLAND';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Switzerland+sui';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Switzerland'
+			Worldcup.flag = 'Switzerland';
+			Worldcup.humanCountry = 'Switzerland';
+			break;
+		case 'Uruguay':
+			Worldcup.activeCountry = 'URUGUAY';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Uruguay+uru';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Uruguay'
+			Worldcup.flag = 'Algeria';
+			Worldcup.humanCountry = 'Algeria';
+			break;
+		case 'USA':
+		case 'United States of America':
+			Worldcup.activeCountry = 'UNITEDSTATES';
+			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=United+states+America+USA';
+			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup USA'
+			Worldcup.flag = 'USA';
+			Worldcup.humanCountry = 'USA';
 			break;
 		default:
 			Worldcup.activeCountry = 'OTHER';
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup';
+			Worldcup.flag = 'none';
+			Worldcup.humanCountry = 'Everyone';
 			break;
 		}
+		
+		// Empty queues
+		Worldcup.queue = [];
+		Worldcup.players = [];
+		Worldcup.playersDetails = [];
+		Worldcup.highlights = [];
+		Worldcup.highlightsFound = [];
+		
+		if(Worldcup.oConnection) {
+			Worldcup.oConnection.unsubscribe(Worldcup.oSubscription);
+		}
+		
+		Worldcup.oConnection = kwwika.Service.connect();
+		Worldcup.oSubscription = Worldcup.oConnection.subscribe("/KWWIKA/TWITTER/SEARCHES/WC2010/"+Worldcup.activeCountry, {
+			topicUpdated:function(oSub, mUpdate){ 
+				Worldcup.queue.push(mUpdate);
+			}
+		});
+		
+		Worldcup.getHighlights();
+		Worldcup.getInstantReplay();
+		
+		$('now-playing').update(
+			'<h3>Now playing.</h3>'
+			+ '<dl>'
+			+ '<dt><img src="/images/Flags/flags/48/'+Worldcup.flag+'.png" alt="" /></dt>'
+			+ '<dd>'
+			+ '<h4>'+Worldcup.humanCountry+'</h4>'
+			+ '<h5 id="perc"><a href="http://vm.nr.no/indexEng.html" target="_blank">Chance of winning: <strong></strong></a></h5>'
+			+ '</dd>'
+			+ '</dl>'
+		);
 	},
 	
 	addPlayer:function(tweet) {
@@ -174,26 +444,7 @@ var Worldcup = {
 		document.getElementsByTagName("head")[0].appendChild(s);
 	},
 	
-	/*
-	Object
-	encoding: "UTF-8"
-	feed: Object
-	author: Array (1)
-	category: Array (1)
-	entry: Array (5)
-	0: Object
-	author: Array (1)
-	0: Object
-	name: Object
-	$t: "dhiwizz"
-	__proto__: Object
-	uri: Object
-	__proto__: Object
-	length: 1
-	__proto__: Array
-	category: Array (46)
-	content: Obj
-	*/
+
 	showInstantReplay:function(data) {
 		var video = data.feed.entry[0];
 		$('replay-video').update(
