@@ -253,6 +253,10 @@
 	<a href='http://tellylinks.com/'>sponsored by TellyLinks</a>.</p>
 </footer>
 
+<a id='tweetlink' target='_blank' href='http://twitter.com/home?status=AWESOME+%3A%29+Live+streaming+%23WorldCup+app+from+%40aaronbassett+and+%40kwwika.+Check+it+out%21+http%3A%2F%2Fbit.ly%2Fwccomp'>
+	<img src='/images/twitter.png' alt='Share this on Twitter' />
+</a>
+
 <script type="text/javascript" src="http://api.kwwika.com/latest/"></script>
 <script type="text/javascript" src="/js/yqlgeo.js"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>

@@ -52,7 +52,20 @@ footer a {
 footer a:hover,
 footer a:focus,
 footer a:active {
-	color: #FF0B28;
+	color: #01B1F0;
+}
+
+#tweetlink {
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+	opacity: 0.7;
+}
+
+#tweetlink:hover,
+#tweetlink:focus,
+#tweetlink:active {
+	opacity: 1;
 }
 
 
@@ -95,7 +108,7 @@ header h2 a {
 header h2 a:hover,
 header h2 a:focus,
 header h2 a:active {
-	color: #FF0B28;
+	color: #01B1F0;
 }
 
 #flags {
@@ -224,7 +237,7 @@ header h2 a:active {
 #tweets li a:hover,
 #tweets li a:focus,
 #tweets li a:active {
-	color: #FF0B28;
+	color: #01B1F0;
 }
 
 .clearfix:after {
