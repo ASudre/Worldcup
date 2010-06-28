@@ -332,7 +332,7 @@ var Worldcup = {
 			Worldcup.activeCountry = 'OTHER';
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup';
-			Worldcup.flag = 'none';
+			Worldcup.flag = 'NATO';
 			Worldcup.humanCountry = 'Everyone';
 			break;
 		}
