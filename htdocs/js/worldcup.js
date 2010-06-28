@@ -192,14 +192,14 @@ var Worldcup = {
 			Worldcup.activeCountry = 'IVORYCOAST';
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Ivory+Coast+civ';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Ivory Coast'
-			Worldcup.flag = 'NATO';
+			Worldcup.flag = 'IvoryCoast';
 			Worldcup.humanCountry = "C™te d'Ivoire";
 			break;
 		case 'Japan':
 			Worldcup.activeCountry = 'JAPAN';
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Japan+jpn';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Japan'
-			Worldcup.flag = 'NATO';
+			Worldcup.flag = 'Japan';
 			Worldcup.humanCountry = 'Japan';
 			break;
 		case 'North Korea':
@@ -211,7 +211,7 @@ var Worldcup = {
 			Worldcup.activeCountry = 'NORTHKOREA';
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=North+Korea+prk';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup North Korea'
-			Worldcup.flag = 'NATO';
+			Worldcup.flag = 'North Korea';
 			Worldcup.humanCountry = 'Korea DPR';
 			break;
 		case 'Korea Republic':
@@ -223,7 +223,7 @@ var Worldcup = {
 			Worldcup.activeCountry = 'SOUTHKOREA';
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=South+Korea+kor';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup South Korea'
-			Worldcup.flag = 'NATO';
+			Worldcup.flag = 'South Korea';
 			Worldcup.humanCountry = 'Korea Republic';
 			break;
 		case 'Mexico':

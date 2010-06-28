@@ -62,10 +62,10 @@
 			<li><a href="#Greece"><img src="/images/Flags/flags/32/Greece.png" alt="" /></a></li>
 			<li><a href="#Honduras"><img src="/images/Flags/flags/32/Honduras.png" alt="" /></a></li>
 			<li><a href="#Italy"><img src="/images/Flags/flags/32/Italy.png" alt="" /></a></li>
-			<li><a href="#IvoryCoast"><img src="/images/Flags/flags/32/NATO.png" alt="" /></a></li>
-			<li><a href="#Japan"><img src="/images/Flags/flags/32/NATO.png" alt="" /></a></li>
-			<li><a href="#KoreaDPR"><img src="/images/Flags/flags/32/NATO.png" alt="" /></a></li>
-			<li><a href="#KoreaRepublic"><img src="/images/Flags/flags/32/NATO.png" alt="" /></a></li>
+			<li><a href="#IvoryCoast"><img src="/images/Flags/flags/32/IvoryCoast.png" alt="" /></a></li>
+			<li><a href="#Japan"><img src="/images/Flags/flags/32/Japan.png" alt="" /></a></li>
+			<li><a href="#KoreaDPR"><img src="/images/Flags/flags/32/North Korea.png" alt="" /></a></li>
+			<li><a href="#KoreaRepublic"><img src="/images/Flags/flags/32/South Korea.png" alt="" /></a></li>
 			<li><a href="#Mexico"><img src="/images/Flags/flags/32/Mexico.png" alt="" /></a></li>
 			<li><a href="#Netherlands"><img src="/images/Flags/flags/32/Netherlands.png" alt="" /></a></li>
 			<li><a href="#NewZealand"><img src="/images/Flags/flags/32/New Zealand.png" alt="" /></a></li>
