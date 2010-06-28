@@ -183,7 +183,7 @@ var Worldcup = {
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Ivory+Coast+civ';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Ivory Coast'
 			Worldcup.flag = 'NATO';
-			Worldcup.humanCountry = 'C™te d\'Ivoire';
+			Worldcup.humanCountry = "C™te d'Ivoire";
 			break;
 		case 'Japan':
 			Worldcup.activeCountry = 'JAPAN';
@@ -202,7 +202,7 @@ var Worldcup = {
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=North+Korea+prk';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup North Korea'
 			Worldcup.flag = 'NATO';
-			Worldcup.humanCountry = 'Democratic People\'s Republic of Korea';
+			Worldcup.humanCountry = 'Korea DPR';
 			break;
 		case 'Korea Republic':
 		case 'South Korea':
@@ -214,7 +214,7 @@ var Worldcup = {
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=South+Korea+kor';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup South Korea'
 			Worldcup.flag = 'NATO';
-			Worldcup.humanCountry = 'Republic of Korea';
+			Worldcup.humanCountry = 'Korea Republic';
 			break;
 		case 'Mexico':
 			Worldcup.activeCountry = 'MEXICO';
@@ -358,7 +358,7 @@ var Worldcup = {
 			+ '<dt><img src="/images/Flags/flags/48/'+Worldcup.flag+'.png" alt="" /></dt>'
 			+ '<dd>'
 			+ '<h4>'+Worldcup.humanCountry+'</h4>'
-			+ '<h5 id="perc"><a href="http://vm.nr.no/indexEng.html" target="_blank">Chance of winning: <strong></strong></a></h5>'
+			+ '<h5 id="perc"><a href="http://vm.nr.no/indexEng.html" target="_blank">Chance of winning: <strong>'+Chances[Worldcup.humanCountry]+'</strong></a></h5>'
 			+ '</dd>'
 			+ '</dl>'
 		);

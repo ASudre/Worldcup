@@ -257,6 +257,7 @@
 <script type="text/javascript" src="/js/yqlgeo.js"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="/js/prototype.s2.min.js"></script>
+<script type="text/javascript" src="/js/chances.js"></script>
 <script type="text/javascript" src="/js/worldcup.js"></script>
 
 <!-- 
