@@ -47,8 +47,18 @@ var Worldcup = {
 			}
 		});
 		
+		$('MapLink').observe('click', function(e) {
+			Event.stop(e);
+			if(confirm("Maps is very, very, very beta. BE WARNED!\nIt might slow down or kill your browser.\nYou still want to enable it?")) TurnOnMap();
+		});
+		
 		
 		yqlgeo.get('visitor',function(o){
+		
+			if(!o.place.centroid.latitude.blank() && !o.place.centroid.longitude.blank()) {
+				MapLat = o.place.centroid.latitude;
+				MapLong = o.place.centroid.longitude;
+			}
 			
 			var visitorCountry = o.place.country.content;
 			Worldcup.setActive(visitorCountry);
@@ -340,7 +350,7 @@ var Worldcup = {
 		
 		Worldcup.oConnection = kwwika.Service.connect();
 		Worldcup.oSubscription = Worldcup.oConnection.subscribe("/KWWIKA/TWITTER/SEARCHES/WC2010/"+Worldcup.activeCountry, {
-			topicUpdated:function(oSub, mUpdate){ 
+			topicUpdated:function(oSub, mUpdate){ 				
 				if(!Worldcup.lang) {
 					Worldcup.queue.push(mUpdate);
 				} else {
@@ -381,8 +391,8 @@ var Worldcup = {
 		Worldcup.garbage();
 	},
 	
-	add:function(tweet) {
-				
+	add:function(tweet) {		
+		
 		// Add new tweet
 		var element = new Element('li',{ 
 			style:'height:auto'
@@ -400,6 +410,14 @@ var Worldcup = {
 		if(Worldcup.players.indexOf(tweet.ScreenName) == -1) {
 			Worldcup.players.push(tweet.ScreenName);
 			Worldcup.playersDetails[tweet.ScreenName] = tweet;
+		}
+		
+		if(mapOn && map) {
+			if(!tweet.GeoLat.blank() && tweet.GeoLat != "=" && !tweet.GeoLong.blank() && tweet.GeoLong != "=") {
+				var point = new GLatLng(tweet.GeoLat, tweet.GeoLong);
+				map.setCenter(point, 13);
+				map.addOverlay(new GMarker(point));
+			}
 		}
 		
 		Worldcup.garbage();
@@ -641,6 +659,26 @@ function GoogleDetect(tweet) {
   });
 }
 google.setOnLoadCallback(GoogleAPIinitialize);
+
+MapLat = 37.4419;
+MapLong = -122.1419;
+
+var mapOn = false;
+var map = false;
+function TurnOnMap() {
+	mapOn = true;
+
+	$('map').setStyle({
+		width: screen.width+"px",
+		height: screen.height+"px",
+		position:'absolute'
+	});
+	
+	$('main-wrapper').setStyle({position:'absolute'});
+	
+	map = new GMap2(document.getElementById("map"));
+	map.setCenter(new GLatLng(MapLat, MapLong), 13);
+}
 
 /*
 BrownTotal: "1"
