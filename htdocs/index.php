@@ -204,7 +204,7 @@
 		<hgroup>
 			<h1>World Cup Mash</h1>
 			<h2><a href='http://kwwika.com/'>Powered by Kwwika</a>, 
-			<a href='http://tellylinks.com/'>Sponsored by TellyLinks</a></h2>
+			<a href='http://tellylinks.com/'>Sponsored by TellyLinks.com</a></h2>
 		</hgroup>
 	</header>
 	
@@ -248,8 +248,8 @@
 	<footer>
 		<p>Built by <a href='http://aaronbassett.com'>Aaron Bassett</a>. 
 		Powered by <a href='http://kwwika.com/'>Kwwika</a>, 
-		<a href='http://tellylinks.com/'>sponsored by TellyLinks</a>. 
-		Read the <a href='http://aaronbassett.tumblr.com/' target="_blank">colophon for all the gory details.</a></p>
+		<a href='http://tellylinks.com/'>sponsored by TellyLinks.com</a>. 
+		Read the <a href='http://aaronbassett.tumblr.com/post/750840518/a-colophon-of-world-cup-entry' target="_blank">colophon for all the gory details.</a></p>
 	</footer>
 	
 	<a id='tweetlink' target='_blank' href='http://twitter.com/home?status=AWESOME+%3A%29+Live+streaming+%23WorldCup+app+from+%40aaronbassett+and+%40kwwika.+Check+it+out%21+http%3A%2F%2Fbit.ly%2Fwccomp'>
@@ -278,6 +278,20 @@
 
 <script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js" defer async></script> 
 <script type="text/javascript" src="/js/fifa.js" defer async></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6492569-8']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 </body>
 </html>

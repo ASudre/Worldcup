@@ -13,7 +13,7 @@ $feed->set_feed_url(array(
 	'http://www.world-cup-news.com/rssfeed.aspx',
 	'http://feeds.feedburner.com/worldcupbuzz'
 ));
-$feed->set_cache_location('/Users/aaronbassett/Sites/worldcup.aaronbassett.com/feeds/cache');
+$feed->set_cache_location('/home/aaronbassett/worldcup.aaronbassett.com/Worldcup/feeds/cache');
 $feed->init();
 $feed->handle_content_type();
 

@@ -650,7 +650,7 @@ function GoogleDetect(tweet) {
           if(Worldcup.lang.toUpperCase() == language.toUpperCase()) {
           	Worldcup.queue.push(tweet);
           } else {
-          	console.log('Language mis-match. You want '+Worldcup.lang+' tweet is in '+language);
+          	//console.log('Language mis-match. You want '+Worldcup.lang+' tweet is in '+language);
           }
           break;
         }
