@@ -55,8 +55,8 @@ var Worldcup = {
 		// Deep linked to a valid country?
 		var urlObj = new Url.Parse(window.location.toString());
 		var countryFragment = urlObj.getFragment();
-		
-		if(countryFragment.toUpperCase() == "OTHER" || $$('a[href=#'+countryFragment+']').length > 0) {
+				
+		if(!countryFragment.blank() || countryFragment.toUpperCase() == "OTHER") {
 			var visitorCountry = countryFragment;
 			Worldcup.setActive(visitorCountry);
 			
@@ -77,6 +77,7 @@ var Worldcup = {
 				
 				var visitorCountry = o.place.country.content;
 				Worldcup.setActive(visitorCountry);
+				
 	
 			});
 		}
@@ -573,6 +574,333 @@ var Worldcup = {
 	}
 };
 
+/*
+AwayTeam: "Germany"
+AwayTeamAccurateBackZonePass: "102"
+AwayTeamAccurateChippedPass: "15"
+AwayTeamAccurateCornersIntobox: "1"
+AwayTeamAccurateCross: "2"
+AwayTeamAccurateFlickOn: "2"
+AwayTeamAccurateFwdZonePass: "200"
+AwayTeamAccurateGoalKicks: "2"
+AwayTeamAccurateKeeperThrows: "6"
+AwayTeamAccurateLayoffs: "12"
+AwayTeamAccurateLongBalls: "22"
+AwayTeamAccuratePass: "300"
+AwayTeamAccurateThroughBall: "1"
+AwayTeamAccurateThrows: "7"
+AwayTeamAerialLost: "4"
+AwayTeamAerialWon: "5"
+AwayTeamAttAssistOpenplay: "10"
+AwayTeamAttAssistSetplay: "1"
+AwayTeamAttBxCentre: "4"
+AwayTeamAttHdMiss: "2"
+AwayTeamAttHdTotal: "1"
+AwayTeamAttIboxMiss: "1"
+AwayTeamAttIboxTarget: "1"
+AwayTeamAttLgCentre: "1"
+AwayTeamAttMissHigh: "1"
+AwayTeamAttMissHighLeft: "2"
+AwayTeamAttMissHighRight: "1"
+AwayTeamAttMissLeft: "1"
+AwayTeamAttOboxBlocked: "5"
+AwayTeamAttOboxGoal: "1"
+AwayTeamAttOboxTarget: "1"
+AwayTeamAttObxCentre: "11"
+AwayTeamAttRfGoal: "2"
+AwayTeamAttRfMiss: "2"
+AwayTeamAttRfTarget: "1"
+AwayTeamAttRfTotal: "11"
+AwayTeamAttSbxCentre: "2"
+AwayTeamAttSetpiece: "2"
+AwayTeamAttSvHighCentre: "1"
+AwayTeamAttSvLowCentre: "1"
+AwayTeamAttSvLowRight: "1"
+AwayTeamAttemptsConcededObox: "13"
+AwayTeamBallRecovery: "47"
+AwayTeamBlockedScoringAtt: "6"
+AwayTeamChallengeLost: "14"
+AwayTeamCrosses18yard: "8"
+AwayTeamCrosses18yardplus: "3"
+AwayTeamDuelLost: "47"
+AwayTeamDuelWon: "66"
+AwayTeamEffectiveClearance: "11"
+AwayTeamEffectiveHeadClearance: "3"
+AwayTeamFinalThirdEntries: "57"
+AwayTeamFirstHalfGoals: "1"
+AwayTeamFkFoulLost: "14"
+AwayTeamFkFoulWon: "18"
+AwayTeamFormationUsed: "4231"
+AwayTeamForwardGoals: "3"
+AwayTeamGoalAssist: "4"
+AwayTeamGoalAssistIntentional: "4"
+AwayTeamGoalAssistOpenplay: "3"
+AwayTeamGoalKicks: "12"
+AwayTeamGoals: "4"
+AwayTeamGoalsConceded: "2"
+AwayTeamGoalsConcededObox: "1"
+AwayTeamHeadClearance: "11"
+AwayTeamInterception: "27"
+AwayTeamKeeperThrows: "6"
+AwayTeamLongPassOwnToOpp: "64"
+AwayTeamLongPassOwnToOppSuccess: "31"
+AwayTeamLostCorners: "5"
+AwayTeamOfftargetAttAssist: "5"
+AwayTeamOntargetAttAssist: "9"
+AwayTeamOntargetScoringAtt: "6"
+AwayTeamOutfielderBlock: "6"
+AwayTeamPassesLeft: "53"
+AwayTeamPassesRight: "54"
+AwayTeamPossessionPercentage: "45.5"
+AwayTeamSavedObox: "3"
+AwayTeamScore: "4"
+AwayTeamShieldBallOop: "1"
+AwayTeamShotOffTarget: "6"
+AwayTeamSubsMade: "3"
+AwayTeamTotalAttAssist: "14"
+AwayTeamTotalBackZonePass: "125"
+AwayTeamTotalChippedPass: "24"
+AwayTeamTotalClearance: "22"
+AwayTeamTotalContest: "17"
+AwayTeamTotalCornersIntobox: "3"
+AwayTeamTotalCross: "16"
+AwayTeamTotalCrossNocorner: "13"
+AwayTeamTotalFlickOn: "3"
+AwayTeamTotalFwdZonePass: "267"
+AwayTeamTotalLaunches: "16"
+AwayTeamTotalLayoffs: "13"
+AwayTeamTotalLongBalls: "34"
+AwayTeamTotalPass: "376"
+AwayTeamTotalScoringAtt: "18"
+AwayTeamTotalTackle: "33"
+AwayTeamTotalThroughBall: "2"
+AwayTeamTotalThrows: "9"
+AwayTeamTotalYelCard: "1"
+AwayTeamTouches: "639"
+AwayTeamWonCorners: "4"
+AwayTeamWonTackle: "25"
+HomeTeam: "Argentina"
+HomeTeamAccurateBackZonePass: "171"
+HomeTeamAccurateChippedPass: "7"
+HomeTeamAccurateCornersIntobox: "1"
+HomeTeamAccurateCross: "4"
+HomeTeamAccurateFlickOn: "4"
+HomeTeamAccurateFwdZonePass: "219"
+HomeTeamAccurateGoalKicks: "5"
+HomeTeamAccurateKeeperThrows: "7"
+HomeTeamAccurateLayoffs: "12"
+HomeTeamAccurateLongBalls: "18"
+HomeTeamAccuratePass: "386"
+HomeTeamAccurateThroughBall: "2"
+HomeTeamAccurateThrows: "22"
+HomeTeamAerialLost: "5"
+HomeTeamAerialWon: "4"
+HomeTeamAttAssistOpenplay: "16"
+HomeTeamAttAssistSetplay: "1"
+HomeTeamAttBxCentre: "1"
+HomeTeamAttGoalHighLeft: "2"
+HomeTeamAttHdMiss: "1"
+HomeTeamAttHdTotal: "1"
+HomeTeamAttIboxMiss: "1"
+HomeTeamAttIboxTarget: "4"
+HomeTeamAttLgCentre: "1"
+HomeTeamAttMissHigh: "1"
+HomeTeamAttMissHighLeft: "1"
+HomeTeamAttMissHighRight: "2"
+HomeTeamAttMissLeft: "1"
+HomeTeamAttOboxBlocked: "4"
+HomeTeamAttOboxGoal: "1"
+HomeTeamAttOboxTarget: "3"
+HomeTeamAttObxCentre: "13"
+HomeTeamAttRfGoal: "1"
+HomeTeamAttRfMiss: "2"
+HomeTeamAttRfTarget: "1"
+HomeTeamAttRfTotal: "4"
+HomeTeamAttSbxCentre: "1"
+HomeTeamAttSetpiece: "1"
+HomeTeamAttSvHighCentre: "3"
+HomeTeamAttSvLowCentre: "4"
+HomeTeamAttSvLowRight: "3"
+HomeTeamAttemptsConcededObox: "11"
+HomeTeamBallRecovery: "44"
+HomeTeamBlockedScoringAtt: "6"
+HomeTeamChallengeLost: "10"
+HomeTeamCrosses18yard: "11"
+HomeTeamCrosses18yardplus: "4"
+HomeTeamDuelLost: "66"
+HomeTeamDuelWon: "47"
+HomeTeamEffectiveClearance: "7"
+HomeTeamEffectiveHeadClearance: "3"
+HomeTeamFinalThirdEntries: "46"
+HomeTeamFkFoulLost: "20"
+HomeTeamFkFoulWon: "13"
+HomeTeamFormationUsed: "41212"
+HomeTeamForwardGoals: "1"
+HomeTeamGoalAssist: "2"
+HomeTeamGoalAssistIntentional: "1"
+HomeTeamGoalAssistOpenplay: "2"
+HomeTeamGoalKicks: "8"
+HomeTeamGoals: "2"
+HomeTeamGoalsConceded: "4"
+HomeTeamGoalsConcededObox: "1"
+HomeTeamHeadClearance: "8"
+HomeTeamInterception: "20"
+HomeTeamKeeperThrows: "7"
+HomeTeamLongPassOwnToOpp: "58"
+HomeTeamLongPassOwnToOppSuccess: "40"
+HomeTeamLostCorners: "4"
+HomeTeamOfftargetAttAssist: "5"
+HomeTeamOntargetAttAssist: "11"
+HomeTeamOntargetScoringAtt: "7"
+HomeTeamOutfielderBlock: "6"
+HomeTeamPassesLeft: "58"
+HomeTeamPassesRight: "69"
+HomeTeamPossessionPercentage: "54.5"
+HomeTeamSavedObox: "1"
+HomeTeamScore: "0"
+HomeTeamShieldBallOop: "1"
+HomeTeamShotOffTarget: "7"
+HomeTeamSubsMade: "2"
+HomeTeamTotalAttAssist: "16"
+HomeTeamTotalBackZonePass: "186"
+HomeTeamTotalChippedPass: "18"
+HomeTeamTotalClearance: "16"
+HomeTeamTotalContest: "27"
+HomeTeamTotalCornersIntobox: "4"
+HomeTeamTotalCross: "19"
+HomeTeamTotalCrossNocorner: "15"
+HomeTeamTotalFlickOn: "3"
+HomeTeamTotalFwdZonePass: "284"
+HomeTeamTotalLaunches: "3"
+HomeTeamTotalLayoffs: "14"
+HomeTeamTotalLongBalls: "25"
+HomeTeamTotalPass: "451"
+HomeTeamTotalScoringAtt: "20"
+HomeTeamTotalTackle: "16"
+HomeTeamTotalThroughBall: "5"
+HomeTeamTotalThrows: "24"
+HomeTeamTotalYelCard: "2"
+HomeTeamTouches: "716"
+HomeTeamWonCorners: "5"
+HomeTeamWonTackle: "10"
+MatchAttendance: "64100"
+MatchDate: "20100703T150000+0100"
+MatchPeriod: "FullTime"
+MatchTime: "92"
+MatchType: "Cup"
+MatchWinner: "Germany"
+Referee: "Ravshan Irmatov"
+ResultType: "NormalResult"
+Venue: "Green Point Stadium"
+*/
+
+var GoalCheck={
+	HomeTeam: false,
+	HomeScore: false,
+	
+	AwayTeam: false,
+	AwayScore: false,
+	
+	goal: false,
+	
+	oConnection:false,
+	oSubscription:false,
+		
+	init:function() {
+		/* Goal image is on page but display:none
+		*  Some browsers download some don't.
+		*  Lets force download, just incase */
+		var i = new Image();
+		i.src = "/images/GOAL.png";
+	
+		GoalCheck.liveMatch("/OPTA/WC2010/TEAMLIVE");
+	},
+	
+	liveMatch:function(feed) {
+		// Check if either ain't showing fulltime
+		GoalCheck.oConnection = kwwika.Service.connect();
+		GoalCheck.oSubscription = GoalCheck.oConnection.subscribe(feed, {
+			topicUpdated:function(oSub, mUpdate){ 				
+				if(mUpdate.MatchPeriod == "FullTime") {
+					GoalCheck.HomeTeam = mUpdate.HomeTeam;
+					GoalCheck.HomeScore = mUpdate.HomeTeamScore;
+				
+					GoalCheck.AwayTeam = mUpdate.AwayTeam;
+					GoalCheck.AwayScore = mUpdate.AwayTeamScore;
+					
+					console.log(GoalCheck.HomeTeam + " vs " + GoalCheck.AwayTeam + " " + mUpdate.MatchPeriod + " score is " + GoalCheck.HomeScore + " - " + GoalCheck.AwayScore);
+					GoalCheck.oConnection.unsubscribe(GoalCheck.oSubscription);
+					GoalCheck.liveMatch("/OPTA/WC2010/TEAMLIVE2");
+				} else {
+					GoalCheck.subscribeTo(feed);
+				}
+			}
+		});
+	},
+	
+	subscribeTo:function(feed) {
+		if(GoalCheck.oConnection) {
+			GoalCheck.oConnection.unsubscribe(GoalCheck.oSubscription);
+		}
+		
+		var oConnection = kwwika.Service.connect();
+		var oSubscription = oConnection.subscribe(feed, {
+			topicUpdated:function(oSub, d){
+				// new Home Goal
+				if(d.HomeTeamScore > 0 && d.HomeTeamScore != GoalCheck.HomeScore && !GoalCheck.goal && GoalCheck.HomeScore !== false) {
+					GoalCheck.goal = true; // stop it playing twice
+					$('NewGoal').removeClassName('hide');
+					$$('#NewGoal img')[0].morph("width:1000px; left: -500px", {duration:0.8, transition:'bouncePast', after:function() {
+						$$('#NewGoal img')[0].morph("width:0px; opacity: 0; left: 0;", {duration:0.8, transition:'easeTo', delay:3, after:function() {
+							$('NewGoal').addClassName('hide');
+							GoalCheck.goal = false;
+							$$('#NewGoal img')[0].setStyle({
+								width: '400px',
+								left: '-200px',
+								opacity: 1
+							});
+						}})
+					}});
+				}
+				
+				// new Away Goal
+				if(d.AwayTeamScore > 0 && d.AwayTeamScore != GoalCheck.AwayScore && !GoalCheck.goal && GoalCheck.AwayScore !== false) {
+					GoalCheck.goal = true; // stop it playing twice
+					$('NewGoal').removeClassName('hide');
+					$$('#NewGoal img')[0].morph("width:1000px; left: -500px", {duration:0.8, transition:'bouncePast', after:function() {
+						$$('#NewGoal img')[0].morph("width:0px; opacity: 0; left: 0;", {duration:0.8, transition:'easeTo', delay:3, after:function() {
+							$('NewGoal').addClassName('hide');
+							GoalCheck.goal = false;
+							$$('#NewGoal img')[0].setStyle({
+								width: '400px',
+								left: '-200px',
+								opacity: 1
+							});
+						}})
+					}});
+				}
+			
+				GoalCheck.HomeTeam = d.HomeTeam;
+				GoalCheck.HomeScore = d.HomeTeamScore;
+				
+				GoalCheck.AwayTeam = d.AwayTeam;
+				GoalCheck.AwayScore = d.AwayTeamScore;
+				
+				// Can we find the team's flag?
+				if($$('#flags a[href=#'+GoalCheck.HomeTeam+']').length > 0) {
+					$$('#flags a[href=#'+GoalCheck.HomeTeam+']+span')[0].removeClassName('hide');
+					$$('#flags a[href=#'+GoalCheck.HomeTeam+']+span')[0].update(GoalCheck.HomeScore);
+				}
+				if($$('#flags a[href=#'+GoalCheck.AwayTeam+']').length > 0) {
+					$$('#flags a[href=#'+GoalCheck.AwayTeam+']+span')[0].removeClassName('hide');
+					$$('#flags a[href=#'+GoalCheck.AwayTeam+']+span')[0].update(GoalCheck.AwayScore);
+				}
+			},
+			topicError:function(oSub, sError){ return; }
+		});
+	}
+}
+
 
 var OptaSports={
 	queue: [],
@@ -645,6 +973,7 @@ var ify = function() {
 document.observe("dom:loaded", function() {
 	Worldcup.initialize();
 	OptaSports.init();
+	GoalCheck.init();
 });
 
 google.load("language", "1");
@@ -695,33 +1024,3 @@ function TurnOnMap() {
 	map = new GMap2(document.getElementById("map"));
 	map.setCenter(new GLatLng(MapLat, MapLong), 13);
 }
-
-/*
-BrownTotal: "1"
-CameronTotal: "6"
-CleggTotal: "423"
-CreatedAt: "6/15/2010 6:09:40 PM"
-Favourited: "false"
-GeoLat: "="
-GeoLong: "="
-GeoType: "Point"
-Id: "16239591607"
-InReplyToScreenName: "="
-InReplyToStatusId: "="
-InReplyToUserId: "19339713"
-PlaceCountry: "="
-PlaceFullName: "="
-PlaceId: "ac88a4f17a51c7fc"
-PlaceName: "Portland"
-PlaceType: "="
-PlaceUrl: "="
-ScreenName: "Englandff"
-Source: "<a href="http://apiwiki.twitter.com/" rel="nofollow">API</a>"
-Text: "Rooney back in training http://ffd.me/b6Fgmi #worldcup #eng"
-TotalTweets: "2095795"
-Truncated: "false"
-UserFollowersCount: "0"
-UserName: "England on FanFeedr"
-UserProfileImageUrl: "http://a1.twimg.com/profile_images/969066708/worldcup2010_normal.png"
-__proto__: Object
-*/

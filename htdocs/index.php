@@ -48,38 +48,38 @@
 <div id='main-wrapper'>
 	<div id='flags' class="clearfix">
 		<ul>
-			<li><a href="#Algeria"><img src="/images/Flags/flags/32/Algeria.png" alt="" /></a></li>
-			<li><a href="#Argentina"><img src="/images/Flags/flags/32/Argentina.png" alt="" /></a></li>
-			<li><a href="#Australia"><img src="/images/Flags/flags/32/Australia.png" alt="" /></a></li>
-			<li><a href="#Brazil"><img src="/images/Flags/flags/32/Brazil.png" alt="" /></a></li>
-			<li><a href="#Cameroon"><img src="/images/Flags/flags/32/Cameroon.png" alt="" /></a></li>
-			<li><a href="#Chile"><img src="/images/Flags/flags/32/Chile.png" alt="" /></a></li>
-			<li><a href="#Denmark"><img src="/images/Flags/flags/32/Denmark.png" alt="" /></a></li>
-			<li><a href="#England"><img src="/images/Flags/flags/32/England.png" alt="" /></a></li>
-			<li><a href="#France"><img src="/images/Flags/flags/32/France.png" alt="" /></a></li>
-			<li><a href="#Germany"><img src="/images/Flags/flags/32/Germany.png" alt="" /></a></li>
-			<li><a href="#Ghana"><img src="/images/Flags/flags/32/Ghana.png" alt="" /></a></li>
-			<li><a href="#Greece"><img src="/images/Flags/flags/32/Greece.png" alt="" /></a></li>
-			<li><a href="#Honduras"><img src="/images/Flags/flags/32/Honduras.png" alt="" /></a></li>
-			<li><a href="#Italy"><img src="/images/Flags/flags/32/Italy.png" alt="" /></a></li>
-			<li><a href="#IvoryCoast"><img src="/images/Flags/flags/32/IvoryCoast.png" alt="" /></a></li>
-			<li><a href="#Japan"><img src="/images/Flags/flags/32/Japan.png" alt="" /></a></li>
-			<li><a href="#KoreaDPR"><img src="/images/Flags/flags/32/North Korea.png" alt="" /></a></li>
-			<li><a href="#KoreaRepublic"><img src="/images/Flags/flags/32/South Korea.png" alt="" /></a></li>
-			<li><a href="#Mexico"><img src="/images/Flags/flags/32/Mexico.png" alt="" /></a></li>
-			<li><a href="#Netherlands"><img src="/images/Flags/flags/32/Netherlands.png" alt="" /></a></li>
-			<li><a href="#NewZealand"><img src="/images/Flags/flags/32/New Zealand.png" alt="" /></a></li>
-			<li><a href="#Nigeria"><img src="/images/Flags/flags/32/Nigeria.png" alt="" /></a></li>
-			<li><a href="#Paraguay"><img src="/images/Flags/flags/32/Paraguay.png" alt="" /></a></li>
-			<li><a href="#Portugal"><img src="/images/Flags/flags/32/Portugal.png" alt="" /></a></li>
-			<li><a href="#Serbia"><img src="/images/Flags/flags/32/Serbia(Yugoslavia).png" alt="" /></a></li>
-			<li><a href="#Slovakia"><img src="/images/Flags/flags/32/Slovakia.png" alt="" /></a></li>
-			<li><a href="#Slovenia"><img src="/images/Flags/flags/32/Slovenia.png" alt="" /></a></li>
-			<li><a href="#SouthAfrica"><img src="/images/Flags/flags/32/South Africa.png" alt="" /></a></li>
-			<li><a href="#Spain"><img src="/images/Flags/flags/32/Spain.png" alt="" /></a></li>
-			<li><a href="#Switzerland"><img src="/images/Flags/flags/32/Switzerland.png" alt="" /></a></li>
-			<li><a href="#Uruguay"><img src="/images/Flags/flags/32/Uruguay.png" alt="" /></a></li>
-			<li><a href="#USA"><img src="/images/Flags/flags/32/USA.png" alt="" /></a></li>
+			<li><a href="#Algeria"><img src="/images/Flags/flags/32/Algeria.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Argentina"><img src="/images/Flags/flags/32/Argentina.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Australia"><img src="/images/Flags/flags/32/Australia.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Brazil"><img src="/images/Flags/flags/32/Brazil.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Cameroon"><img src="/images/Flags/flags/32/Cameroon.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Chile"><img src="/images/Flags/flags/32/Chile.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Denmark"><img src="/images/Flags/flags/32/Denmark.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#England"><img src="/images/Flags/flags/32/England.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#France"><img src="/images/Flags/flags/32/France.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Germany"><img src="/images/Flags/flags/32/Germany.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Ghana"><img src="/images/Flags/flags/32/Ghana.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Greece"><img src="/images/Flags/flags/32/Greece.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Honduras"><img src="/images/Flags/flags/32/Honduras.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Italy"><img src="/images/Flags/flags/32/Italy.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#IvoryCoast"><img src="/images/Flags/flags/32/IvoryCoast.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Japan"><img src="/images/Flags/flags/32/Japan.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#KoreaDPR"><img src="/images/Flags/flags/32/North Korea.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#KoreaRepublic"><img src="/images/Flags/flags/32/South Korea.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Mexico"><img src="/images/Flags/flags/32/Mexico.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Netherlands"><img src="/images/Flags/flags/32/Netherlands.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#NewZealand"><img src="/images/Flags/flags/32/New Zealand.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Nigeria"><img src="/images/Flags/flags/32/Nigeria.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Paraguay"><img src="/images/Flags/flags/32/Paraguay.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Portugal"><img src="/images/Flags/flags/32/Portugal.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Serbia"><img src="/images/Flags/flags/32/Serbia(Yugoslavia).png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Slovakia"><img src="/images/Flags/flags/32/Slovakia.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Slovenia"><img src="/images/Flags/flags/32/Slovenia.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#SouthAfrica"><img src="/images/Flags/flags/32/South Africa.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Spain"><img src="/images/Flags/flags/32/Spain.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Switzerland"><img src="/images/Flags/flags/32/Switzerland.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#Uruguay"><img src="/images/Flags/flags/32/Uruguay.png" alt="" /></a><span class="hide"></span></li>
+			<li><a href="#USA"><img src="/images/Flags/flags/32/USA.png" alt="" /></a><span class="hide"></span></li>
 		</ul>
 	</div> <!-- END: #flags -->
 	
@@ -257,6 +257,10 @@
 	</a>
 
 </div>
+
+<figure id="NewGoal" class="hide">
+	<img src="/images/GOAL.png" alt="" />
+</figure>
 
 <script type="text/javascript" src="http://api.kwwika.com/latest/"></script>
 <script type="text/javascript" src="/js/yqlgeo.js"></script>
