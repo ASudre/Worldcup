@@ -59,6 +59,14 @@ var Worldcup = {
 		if(countryFragment.toUpperCase() == "OTHER" || $$('a[href=#'+countryFragment+']').length > 0) {
 			var visitorCountry = countryFragment;
 			Worldcup.setActive(visitorCountry);
+			
+			yqlgeo.get('visitor',function(o){
+				if(!o.place.centroid.latitude.blank() && !o.place.centroid.longitude.blank()) {
+					MapLat = o.place.centroid.latitude;
+					MapLong = o.place.centroid.longitude;
+				}
+			});
+			
 		} else {
 			yqlgeo.get('visitor',function(o){
 			
