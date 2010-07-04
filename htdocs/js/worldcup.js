@@ -973,7 +973,7 @@ var ify = function() {
 document.observe("dom:loaded", function() {
 	Worldcup.initialize();
 	OptaSports.init();
-	GoalCheck.init();
+	// GoalCheck.init();
 });
 
 google.load("language", "1");
