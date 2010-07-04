@@ -812,8 +812,22 @@ var GoalCheck={
 		*  Lets force download, just incase */
 		var i = new Image();
 		i.src = "/images/GOAL.png";
-	
+		
+		GoalCheck.readySound();
 		GoalCheck.liveMatch("/OPTA/WC2010/TEAMLIVE");
+	},
+	
+	readySound:function() {
+		soundManager.url = '/swf/';
+		soundManager.useFlashBlock = false;
+		soundManager.onload = function() {
+			// SM2 has loaded - now you can create and play sounds!
+		};
+	},
+	
+	playSound:function() {
+		soundManager.createSound('GOAL','/GOAL.mp3');
+		soundManager.play('GOAL');
 	},
 	
 	liveMatch:function(feed) {
@@ -849,6 +863,7 @@ var GoalCheck={
 				// new Home Goal
 				if(d.HomeTeamScore > 0 && d.HomeTeamScore != GoalCheck.HomeScore && !GoalCheck.goal && GoalCheck.HomeScore !== false) {
 					GoalCheck.goal = true; // stop it playing twice
+					GoalCheck.playSound();
 					$('NewGoal').removeClassName('hide');
 					$$('#NewGoal img')[0].morph("width:1000px; left: -500px", {duration:0.8, transition:'bouncePast', after:function() {
 						$$('#NewGoal img')[0].morph("width:0px; opacity: 0; left: 0;", {duration:0.8, transition:'easeTo', delay:3, after:function() {
@@ -866,6 +881,7 @@ var GoalCheck={
 				// new Away Goal
 				if(d.AwayTeamScore > 0 && d.AwayTeamScore != GoalCheck.AwayScore && !GoalCheck.goal && GoalCheck.AwayScore !== false) {
 					GoalCheck.goal = true; // stop it playing twice
+					GoalCheck.playSound();
 					$('NewGoal').removeClassName('hide');
 					$$('#NewGoal img')[0].morph("width:1000px; left: -500px", {duration:0.8, transition:'bouncePast', after:function() {
 						$$('#NewGoal img')[0].morph("width:0px; opacity: 0; left: 0;", {duration:0.8, transition:'easeTo', delay:3, after:function() {

@@ -268,6 +268,7 @@
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAsqqbEkxZVbQW3Zu5vospYBTyVRo1s37xKwjrEyJXOrfxvvfVRRRrOOyZhTlIKP_yGXfhOahvXQcaDg" type="text/javascript"></script>
 <script type="text/javascript" src="/js/prototype.s2.min.js"></script>
 <script type="text/javascript" src="/js/Url.Parse.js"></script>
+<script type="text/javascript" src="/js/soundmanager2-nodebug-jsmin.js"></script>
 <script type="text/javascript" src="/js/chances.js"></script>
 <script type="text/javascript" src="/js/worldcup.js"></script>
 
