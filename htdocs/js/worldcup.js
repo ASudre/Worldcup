@@ -52,18 +52,26 @@ var Worldcup = {
 			if(confirm("Maps is very, very, very beta. BE WARNED!\nIt might slow down or kill your browser.\nYou still want to enable it?")) TurnOnMap();
 		});
 		
+		// Deep linked to a valid country?
+		var urlObj = new Url.Parse(window.location.toString());
+		var countryFragment = urlObj.getFragment();
 		
-		yqlgeo.get('visitor',function(o){
-		
-			if(!o.place.centroid.latitude.blank() && !o.place.centroid.longitude.blank()) {
-				MapLat = o.place.centroid.latitude;
-				MapLong = o.place.centroid.longitude;
-			}
-			
-			var visitorCountry = o.place.country.content;
+		if(countryFragment.toUpperCase() == "OTHER" || $$('a[href=#'+countryFragment+']').length > 0) {
+			var visitorCountry = countryFragment;
 			Worldcup.setActive(visitorCountry);
-
-		});
+		} else {
+			yqlgeo.get('visitor',function(o){
+			
+				if(!o.place.centroid.latitude.blank() && !o.place.centroid.longitude.blank()) {
+					MapLat = o.place.centroid.latitude;
+					MapLong = o.place.centroid.longitude;
+				}
+				
+				var visitorCountry = o.place.country.content;
+				Worldcup.setActive(visitorCountry);
+	
+			});
+		}
 				
 		new PeriodicalExecuter(function(pe) {
 			Worldcup.next();
