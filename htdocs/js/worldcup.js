@@ -334,8 +334,8 @@ var Worldcup = {
 			Worldcup.activeCountry = 'URUGUAY';
 			Worldcup.activeTwitpicSearch = 'http://search.twitter.com/search.json?q=twitpic+Worldcup&ors=Uruguay+uru';
 			Worldcup.activeYoutubeSearch = 'http://gdata.youtube.com/feeds/videos?max-results=5&start-index=1&vq=World Cup Uruguay'
-			Worldcup.flag = 'Algeria';
-			Worldcup.humanCountry = 'Algeria';
+			Worldcup.flag = 'Uruguay';
+			Worldcup.humanCountry = 'Uruguay';
 			break;
 		case 'USA':
 		case 'United States of America':
@@ -989,7 +989,7 @@ var ify = function() {
 document.observe("dom:loaded", function() {
 	Worldcup.initialize();
 	OptaSports.init();
-	// GoalCheck.init();
+	GoalCheck.init();
 });
 
 google.load("language", "1");
