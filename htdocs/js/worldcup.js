@@ -842,7 +842,7 @@ var GoalCheck={
 					GoalCheck.AwayTeam = mUpdate.AwayTeam;
 					GoalCheck.AwayScore = mUpdate.AwayTeamScore;
 					
-					console.log(GoalCheck.HomeTeam + " vs " + GoalCheck.AwayTeam + " " + mUpdate.MatchPeriod + " score is " + GoalCheck.HomeScore + " - " + GoalCheck.AwayScore);
+					//console.log(GoalCheck.HomeTeam + " vs " + GoalCheck.AwayTeam + " " + mUpdate.MatchPeriod + " score is " + GoalCheck.HomeScore + " - " + GoalCheck.AwayScore);
 					GoalCheck.oConnection.unsubscribe(GoalCheck.oSubscription);
 					GoalCheck.liveMatch("/OPTA/WC2010/TEAMLIVE2");
 				} else {
@@ -852,7 +852,7 @@ var GoalCheck={
 		});
 	},
 	
-	subscribeTo:function(feed) {
+	subscribeTo:function(feed) {		
 		if(GoalCheck.oConnection) {
 			GoalCheck.oConnection.unsubscribe(GoalCheck.oSubscription);
 		}
