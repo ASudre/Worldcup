@@ -1,10 +1,10 @@
 var Chances={
 	"Argentina" : "0%",
-	"Germany" : "15%",
-	"Netherlands" : "36.5%",
+	"Germany" : "0%",
+	"Netherlands" : "49.6%",
 	"Brazil" : "0%",
 	"Uruguay" : "0%",
-	"Spain" : "16.6%",
+	"Spain" : "50.4%",
 	"Portugal" : "0%",
 	"Ghana" : "0%",
 	"Chile" : "0%",
